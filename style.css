@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+
+/* ROOT */
+
+:root {
+  /* COLORS */
+
+  --strong-cyan: hsl(172, 67%, 45%);
+  --hover-cyan: hsl(173, 66%, 79%);
+
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+
+  /* FONT FAMILY */
+
+  --ff-space-mono: "Space Mono", serif;
+
+  /* FONT WEIGHT */
+  
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+/* RESET */
+
+*::after, *::before, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL STYLES */
+
+body {
+    font-family: var(--ff-space-mono);
+    font-size: 24px;
+    background-color: var(--light-grayish-cyan);
+}
+
+/* TITLE SPAN */
+
+div.title {
+    color: var(--very-dark-cyan);
+    font-size: 0.52em;
+    text-align: center;
+    letter-spacing: 0.75em;
+    margin: 3.2em 0 2.4em 0 ;
+}
+
+/* CONTAINER */
+
+.container {
+    width: 375px;
+    height: 100%;
+    background-color: var(--white);
+    margin: auto;
+    padding: 1.35em;
+    border-radius: 1em;
+}
+
+/* FORM */
+
+form {
+    font-size: 0.67em;
+    color: var(--dark-grayish-cyan);
+    display: grid;
+}
+
+fieldset {
+    border: none;
+}
+
+input {
+    width: 100%;
+    font-family: var(--ff-space-mono);
+    text-align: right;
+    font-size: 1.5rem;
+    color: var(--very-dark-cyan);
+    background-color: var(--very-light-grayish-cyan);
+    padding: 0.25em 0.66em;
+    border: none;
+    border-radius: 0.2em;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 1rem;
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--grayish-cyan);
+}
+
+/* BILL AMOUNT FIELDSET */
+
+#bill {
+    background-image: url(./images/icon-dollar.svg);
+    margin-top: 0.25em;
+    margin-bottom: 1.33em;
+}
+
+#bill:focus {
+    border: 0.1em solid var(--strong-cyan);
+}
+
+/* TIP BUTTONS FIELDSET */
+
+.buttons-container {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.tip {
+    font-family: var(--ff-space-mono);
+    font-size: 1.6em;
+    color: var(--white);
+    padding: 0.19em;
+    background-color: var(--very-dark-cyan);
+    border: none;
+    border-radius: 0.2em;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.tip:hover {
+    background-color: var(--hover-cyan);
+    color: var(--dark-grayish-cyan);
+}
+
+/* helper class for tip buttons on focus, use it with JS */
+.active {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.custom {
+   background-color: var(--very-light-grayish-cyan);
+   color: var(--very-dark-cyan);
+   padding-right: 0.7em;
+   letter-spacing: -0.05em;
+   transition: all 0.5s ease-in-out;
+}
+
+.custom::placeholder {
+    color: var(--dark-grayish-cyan);
+}
+
+.custom:focus {
+    border: 0.1em solid var(--strong-cyan);
+    background-color: var(--white);
+}
+
+/* NUMBER OF PEOPLE FIELDSET */
+
+input#people {
+    background-image: url(./images/icon-person.svg);
+    margin-top: 0.25em;
+}
+
+input#people:focus {
+    border: 0.1em solid var(--strong-cyan);
+}
+
+.error-border {
+    border: 0.1em solid #CC5500;
+}
+
+.error-msg {
+    color: #CC5500;
+    display: none;
+}
+
+/* RESULT FIELDSET */
+
+#result {
+    background-color: var(--very-dark-cyan);
+    margin: 2em -0.5em 0 -0.5em;
+    padding: 2.5em 1.35em 1.5em;
+    border-radius: 0.8em;
+    font-size: 0.66em;
+
+    display: grid;
+    gap: 1.3em;
+}
+
+.display {
+    color: var(--white);
+    display: flex;
+}
+
+.per-person {
+    font-size: 0.85em;
+    color: var(--grayish-cyan);
+}
+
+.digits {
+    font-size: 2em;
+    color: var(--strong-cyan);
+    margin-left: auto;
+}
+
+button#reset {
+    background-color: var(--dark-grayish-cyan);
+    border: none;
+    border-radius: 0.2em;
+    font-family: var(--ff-space-mono);
+    font-size: 1.25em;
+    color: var(--very-dark-cyan);
+    padding: 0.47em;
+    margin-top: 0.55em;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+button#reset:hover {
+    background-color: var(--hover-cyan) !important;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 374px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    /* BODY */
+
+    body {
+        height: 100vh;
+    }
+
+    /* TITLE */
+
+    div.title {
+        margin-top: 7.7em;
+        margin-bottom: -2.1em;
+    }
+
+    /* CONTAINER */
+
+    .container {
+        width: 920px;
+        height: 481px;
+        padding: 1.35em;
+        margin-top: 6.65em;
+
+        display: grid;
+        grid-template-columns: 0.85fr 0.89fr;
+        gap: 2em;    
+    }
+
+    /* FORM */
+
+    form {
+        padding-left: 1.1em;
+    }
+
+    /* BILL AMOUNT FIELDSET */
+
+    #bill-amount {
+      margin-top: 0.8em;
+    }
+
+    input#bill {
+        margin-bottom: 1.0em;
+    }
+
+    /* TIP BUTTONS FIELDSET */
+
+    .buttons-container {
+        margin-top: 1em;
+        margin-bottom: 1.5em;
+        grid-template-columns: 1fr 1fr 1fr ;
+       
+    }
+
+    /* NUMBER OF PEOPLE FIELDSET */
+
+    fieldset#num-of-people {
+        position: relative;
+    }
+
+    .error-msg {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /* RESULT FIELDSET */
+
+    #result {
+        margin: 0;
+        padding: 2.5em 2.35em 1.45em;
+        gap: 0;
+    }
+    
+    .tip-value {
+        padding-top: 1em;
+    }
+
+    .digits {
+        font-size: 3em;
+    }
+
+    button#reset {
+        background-color: var(--dark-grayish-cyan);
+        color: var(--very-dark-cyan);
+        padding: 0em;
+        margin-top: 5em;
+        margin-bottom: 0.8em;
+    }
+    
+}
+
+
+
